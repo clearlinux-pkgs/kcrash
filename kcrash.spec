@@ -6,7 +6,7 @@
 #
 Name     : kcrash
 Version  : 5.49.0
-Release  : 2
+Release  : 3
 URL      : https://download.kde.org/stable/frameworks/5.49/kcrash-5.49.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.49/kcrash-5.49.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.49/kcrash-5.49.0.tar.xz.sig
@@ -15,12 +15,14 @@ Group    : Development/Tools
 License  : LGPL-2.1
 Requires: kcrash-lib
 Requires: kcrash-license
+Requires: kcrash-data
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : kcoreaddons-dev
 BuildRequires : kwindowsystem-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtx11extras-dev
 
 %description
 # KCrash
@@ -28,10 +30,19 @@ Graceful handling of application crashes
 ## Introduction
 KCrash provides support for intercepting and handling application crashes.
 
+%package data
+Summary: data components for the kcrash package.
+Group: Data
+
+%description data
+data components for the kcrash package.
+
+
 %package dev
 Summary: dev components for the kcrash package.
 Group: Development
 Requires: kcrash-lib
+Requires: kcrash-data
 Provides: kcrash-devel
 
 %description dev
@@ -41,6 +52,7 @@ dev components for the kcrash package.
 %package lib
 Summary: lib components for the kcrash package.
 Group: Libraries
+Requires: kcrash-data
 Requires: kcrash-license
 
 %description lib
@@ -63,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534092975
+export SOURCE_DATE_EPOCH=1535426932
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -71,7 +83,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1534092975
+export SOURCE_DATE_EPOCH=1535426932
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kcrash
 cp COPYING.LIB %{buildroot}/usr/share/doc/kcrash/COPYING.LIB
@@ -81,6 +93,10 @@ popd
 
 %files
 %defattr(-,root,root,-)
+
+%files data
+%defattr(-,root,root,-)
+/usr/share/xdg/kcrash.categories
 
 %files dev
 %defattr(-,root,root,-)
