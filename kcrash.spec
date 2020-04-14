@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kcrash
-Version  : 5.68.0
-Release  : 30
-URL      : https://download.kde.org/stable/frameworks/5.68/kcrash-5.68.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.68/kcrash-5.68.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.68/kcrash-5.68.0.tar.xz.sig
+Version  : 5.69.0
+Release  : 31
+URL      : https://download.kde.org/stable/frameworks/5.69/kcrash-5.69.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.69/kcrash-5.69.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.69/kcrash-5.69.0.tar.xz.sig
 Summary  : Support for application crash analysis and bug report from apps
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -69,15 +69,15 @@ license components for the kcrash package.
 
 
 %prep
-%setup -q -n kcrash-5.68.0
-cd %{_builddir}/kcrash-5.68.0
+%setup -q -n kcrash-5.69.0
+cd %{_builddir}/kcrash-5.69.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1584312948
+export SOURCE_DATE_EPOCH=1586892908
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -94,10 +94,10 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1584312948
+export SOURCE_DATE_EPOCH=1586892908
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kcrash
-cp %{_builddir}/kcrash-5.68.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kcrash/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/kcrash-5.69.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kcrash/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 pushd clr-build
 %make_install
 popd
@@ -125,7 +125,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Crash.so.5
-/usr/lib64/libKF5Crash.so.5.68.0
+/usr/lib64/libKF5Crash.so.5.69.0
 
 %files license
 %defattr(0644,root,root,0755)
