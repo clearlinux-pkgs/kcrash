@@ -1,10 +1,10 @@
-libKF6Crash.so.6:_ZN6KCrash10initializeEv
-libKF6Crash.so.6:_ZN6KCrash12crashHandlerEv
-libKF6Crash.so.6:_ZN6KCrash15setCrashHandlerEPFviE
-libKF6Crash.so.6:_ZN6KCrash15setErrorMessageERK7QString
-libKF6Crash.so.6:_ZN6KCrash16isDrKonqiEnabledEv
-libKF6Crash.so.6:_ZN6KCrash17setDrKonqiEnabledEb
-libKF6Crash.so.6:_ZN6KCrash19defaultCrashHandlerEi
-libKF6Crash.so.6:_ZN6KCrash21emergencySaveFunctionEv
-libKF6Crash.so.6:_ZN6KCrash24setEmergencySaveFunctionEPFviE
-libKF6Crash.so.6:_ZN6KCrash8setFlagsE6QFlagsINS_9CrashFlagEE
+libKF6Crash.so.6:KCrash::initialize()
+libKF6Crash.so.6:KCrash::crashHandler()
+libKF6Crash.so.6:KCrash::setCrashHandler(void (*)(int))
+libKF6Crash.so.6:KCrash::setErrorMessage(QString const&)
+libKF6Crash.so.6:KCrash::isDrKonqiEnabled()
+libKF6Crash.so.6:KCrash::setDrKonqiEnabled(bool)
+libKF6Crash.so.6:KCrash::defaultCrashHandler(int)
+libKF6Crash.so.6:KCrash::emergencySaveFunction()
+libKF6Crash.so.6:KCrash::setEmergencySaveFunction(void (*)(int))
+libKF6Crash.so.6:KCrash::setFlags(QFlags<KCrash::CrashFlag>)
